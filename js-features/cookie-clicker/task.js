@@ -1,7 +1,22 @@
+let clicker = document.querySelector("#clicker__counter");
+let cookie = document.querySelector("#cookie");
 
 function game () {
-for (i = 0; i = cookie.onclick; i++) {
- i = clicker__counter.testContent;
-} } 
 
-game();
+ let a = clicker__counter.textContent += 1; 
+ clicker = a;
+
+ }
+
+ cookie.addEventListener("click", game);
+
+
+
+
+
+
+
+
+
+
+
