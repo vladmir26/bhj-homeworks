@@ -7,11 +7,12 @@ const interval = setInterval(competition, 1000);
     timer.textContent = b;
     
     if(b == 0) {
-        alert("Вы победили в конкурсе!")
+       stop(); 
+       alert("Вы победили в конкурсе!")
 }
  }
 
- function Stop() {
+ function stop() {
 clearInterval(interval); 
  }
 
