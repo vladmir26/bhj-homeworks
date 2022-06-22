@@ -1,16 +1,15 @@
 let menuLink = document.querySelectorAll(".menu__link");
-let menuSub = document.querySelectorAll(".menu_sub");
-
-
-
 
 for (let m of menuLink) {
-    m.addEventListener("click", openMenu,);
+    m.addEventListener("click", openMenu);
 } 
 
-function openMenu () {
 
-   menuSub.classList.add(".menu_active");
-   
-   return false;
+function openMenu (event) {
+ event.preventDefault();
+ const parent = event.target.closest('.menu__item');
+
+ const menu = parent.querySelector('.menu_sub');
+ menu.classList.toggle('menu_active');
+
 }
