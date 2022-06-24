@@ -1,24 +1,30 @@
 let arrows = document.querySelectorAll(".slider__arrow");
-let sliderItem = document.querySelectorAll(".slider__item");
+let sliderItem = Array.from(document.querySelectorAll(".slider__item"));
 
 for (let ar of arrows) {
     ar.addEventListener("click", switching);
 }
 
+
+
 function switching (event) {
  
-  for (let sl of sliderItem) {
-    sl.classList.add("slider__item_active");
+if (event.target.classList.contains("slider__arrow_next")) {
+const currentSlider = sliderItem.findIndex((index) => {return index.classList.contains("slider__item_active")});
+const nextSlider = currentSlider + 1;
+}
+if (event.target.classList.contains("slider__arrow_prev")) {
+ const prevSlider = currentSlider - 1; 
+}
 
-  }
-    const par = event.target.closest(".slider__items");
-    const slider = par.querySelector(".slider__item");
-   
-    slider.classList.remove("slider__item_active");
+if (nextSlider == sliderItem.length) {
+   currentSlider ===  sliderItem[0];
+}
 
+if(prevSlider < 0) {
+    currentSlider === sliderItem.length - 1;
+}
 
- 
-  
-    
-   
+nextSlider.classList.add('slider__item_active');
+prevSlider.classList.remove('slider__item_active');
 } 
