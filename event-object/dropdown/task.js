@@ -13,7 +13,8 @@ for (let link of dropdownLink) {
 }
 
 function choose (event) {
+    event.preventDefault();
     dropdownValue.textContent = event.target.textContent;
-    dropdownList.classList.remove("dropdown__list_active");
+    event.target.classList.remove("dropdown__list_active");
 }
 
