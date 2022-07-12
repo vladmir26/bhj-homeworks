@@ -29,7 +29,7 @@ class Game {
 
    document.addEventListener('keydown', (event) => {
    
-    if (event.key === this.currentSymbol.textContent) {
+    if (event.key.toLowerCase() === this.currentSymbol.textContent.toLowerCase()) {
         this.success();
       } else {
         this.fail();

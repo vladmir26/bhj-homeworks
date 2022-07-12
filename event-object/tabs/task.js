@@ -6,7 +6,13 @@ for (let t of tab) {
 }
 
 function operation (event) {
+  const currentActiveIndex = tab.findIndex((element) => element.classList.contains("tab_active"));
+  tab[currentActiveIndex].classList.remove("tab_active");
+  tabContent[currentActiveIndex].classList.remove("tab__content_active");
 
+  const newActiveIndex = tab.indexOf(event.target);
+  event.target.classList.add("tab_active");
+  tabContent[newActiveIndex].classList.add("tab__content_active");
 
 }
 
