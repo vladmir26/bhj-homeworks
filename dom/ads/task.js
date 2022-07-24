@@ -1,17 +1,16 @@
-let rotatorCase = Array.from(document.querySelectorAll("rotator__case"));
+let rotatorCase = Array.from(document.querySelectorAll(".rotator__case"));
 
-for (let r of rotatorCase) {
-r.setInterval(() => {
+
+setInterval(i, 1000);
+  
+  function i () {
     let currentRotator = rotatorCase.findIndex((index) => {return index.classList.contains("rotator__case_active")});
     let nextRotator;
 
-    if (r.setInterval()) {
-      nextRotator = currentRotator + 1;
+    if (setInterval(i, 1000)) {
+     nextRotator = currentRotator + 1;
       if (nextRotator === rotatorCase.length) {
-        nextRotator = 0;
-      }
-      if (nextRotator < 0) {
-        nextRotator = rotatorCase.length - 1;
+         nextRotator = 0;
       }
 
 }
@@ -19,4 +18,5 @@ r.setInterval(() => {
 rotatorCase[nextRotator].classList.add("rotator__case_active");
 rotatorCase[currentRotator].classList.remove("rotator__case_active");
 
-}, 1000)}
+}
+
