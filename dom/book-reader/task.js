@@ -29,13 +29,16 @@ function changeFont (event) {
 let color = Array.from(document.querySelectorAll(".color"));
 
 for (let elem of color) {
-    elem.addEventListener("click", changeColor)
+    elem.addEventListener("click", () => {
+        changeColor();
+        changeColorText();
+    })
 }
+
+let currentEl = color.find((element) => element.classList.contains("color_active"));
 
 function changeColor (event) {
    event.preventDefault();
-
-   let currentEl = color.find((element) => element.classList.contains("color_active"));
 
    currentEl.classList.remove("color_active");
    event.target.classList.add("color_active");
@@ -55,9 +58,16 @@ function changeColor (event) {
    } else {
        book.classList.remove("book_color-whitesmoke");
    }
+}
 
 
-   book.style.color = currentEl.dataset.textColor;
+function changeColorText  (event) {
+
+    event.preventDefault();
+    currentEl.classList.remove("color_active");
+    event.target.classList.add("color_active");
+
+    book.style.color = currentEl.dataset.textColor;
 
    if (event.target.classList.contains("bg_color_black")) {
        book.classList.add("bg_color_black");
