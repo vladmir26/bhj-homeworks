@@ -26,19 +26,17 @@ function changeFont (event) {
     }
 }
 
-let color = Array.from(document.querySelectorAll(".color"));
+let colorText = Array.from(document.querySelectorAll(".book__control_color .color"));
+let colorBg = Array.from(document.querySelectorAll(".book__control_background .color"));
 
-for (let elem of color) {
-    elem.addEventListener("click", () => {
-        changeColor();
-        changeColorText();
-    })
+for (let elem of colorText) {
+    elem.addEventListener("click", changeColorText);
 }
 
-let currentEl = color.find((element) => element.classList.contains("color_active"));
-
-function changeColor (event) {
+function changeColorText (event) {
    event.preventDefault();
+
+   let currentEl = colorText.find((element) => element.classList.contains("color_active"));
 
    currentEl.classList.remove("color_active");
    event.target.classList.add("color_active");
@@ -60,25 +58,30 @@ function changeColor (event) {
    }
 }
 
+for (let ele of colorBg) {
+    ele.addEventListener("click", changeColorBg);
+}
 
-function changeColorText  (event) {
-
+function changeColorBg (event) {
     event.preventDefault();
-    currentEl.classList.remove("color_active");
+
+    let currentElem = colorBg.find((element) => element.classList.contains("color_active"));
+
+    currentElem.classList.remove("color_active");
     event.target.classList.add("color_active");
 
-    book.style.color = currentEl.dataset.textColor;
+    book.style.color = currentElem.dataset.textColor;
 
    if (event.target.classList.contains("bg_color_black")) {
        book.classList.add("bg_color_black");
-       currentEl.dataset.textColor;
+       currentElem.dataset.textColor;
     } else {
        book.classList.remove("bg_color_black");
    }
 
    if (event.target.classList.contains("bg_color_gray")) {
       book.classList.add("bg_color_gray");
-      currentEl.dataset.textColor;
+      currentElem.dataset.textColor;
    } else {
       book.classList.remove("bg_color_gray");
    }
