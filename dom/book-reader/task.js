@@ -1,3 +1,5 @@
+// Изменение размера шрифта 
+
 let fontSize = Array.from(document.querySelectorAll(".font-size"));
 let book = document.querySelector(".book");
 
@@ -26,8 +28,10 @@ function changeFont (event) {
     }
 }
 
+// Изменение цвета текста
+
 let colorText = Array.from(document.querySelectorAll(".book__control_color .color"));
-let colorBg = Array.from(document.querySelectorAll(".book__control_background .color"));
+
 
 for (let elem of colorText) {
     elem.addEventListener("click", changeColorText);
@@ -41,22 +45,22 @@ function changeColorText (event) {
    currentEl.classList.remove("color_active");
    event.target.classList.add("color_active");
 
-   book.style.background = currentEl.dataset.bgColor;
-
-   if (event.target.classList.contains("text_color_gray")) {
+  if (event.target.classList.contains("text_color_gray")) {
        book.classList.add("book_color-gray");
-       currentEl.dataset.bgColor;
-   } else {
+    } else {
        book.classList.remove("book_color-gray");
    }
 
-   if (event.target.classList.contains("text_color_whitesmoke")) {
+  if (event.target.classList.contains("text_color_whitesmoke")) {
        book.classList.add("book_color-whitesmoke");
-       currentEl.dataset.bgColor;
    } else {
        book.classList.remove("book_color-whitesmoke");
    }
 }
+
+// Изменеие цвета фона
+
+let colorBg = Array.from(document.querySelectorAll(".book__control_background .color"));
 
 for (let ele of colorBg) {
     ele.addEventListener("click", changeColorBg);
@@ -70,19 +74,15 @@ function changeColorBg (event) {
     currentElem.classList.remove("color_active");
     event.target.classList.add("color_active");
 
-    book.style.color = currentElem.dataset.textColor;
-
-   if (event.target.classList.contains("bg_color_black")) {
+    if (event.target.classList.contains("bg_color_black")) {
        book.classList.add("bg_color_black");
-       currentElem.dataset.textColor;
-    } else {
+     } else {
        book.classList.remove("bg_color_black");
    }
 
-   if (event.target.classList.contains("bg_color_gray")) {
+     if (event.target.classList.contains("bg_color_gray")) {
       book.classList.add("bg_color_gray");
-      currentElem.dataset.textColor;
-   } else {
+    } else {
       book.classList.remove("bg_color_gray");
    }
 }
