@@ -10,7 +10,8 @@ function openingChat (event) {
 }
 
 const input = document.querySelector(".chat-widget__input");
-const messageClient = document.querySelector(".message_client");
+const messageClient = document.querySelector(".chat-widget__messages");
+
 
 input.addEventListener("keydown", sendingMessageUser);
 
@@ -20,5 +21,5 @@ function sendingMessageUser (event) {
      <div class="message__time">22:10</div>
      <div class="message__text">Добрый день!</div>
  </div>`;
-    }
+}
 }
