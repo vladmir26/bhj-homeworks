@@ -4,8 +4,11 @@ const ROBOT_MESSAGES = ['Добрый день', 'Все операторы за
 
 chat.addEventListener("click", openingChat);
 
+let timeoutId;
+
 function openingChat () {
   chat.classList.add("chat-widget_active"); 
+  timeoutId = setTimeout(sendingMessageRobot, 30000);
 }
 
 const input = document.querySelector(".chat-widget__input");
@@ -32,7 +35,11 @@ function sendingMessageUser (event) {
         </div>`;
         input.value = '';
         sendingMessageRobot();
+
+        clearTimeout(timeoutId);
+        timeoutId;
     }
+
 } 
 
 function sendingMessageRobot () {
@@ -43,4 +50,22 @@ function sendingMessageRobot () {
     <div class="message__text">${ROBOT_MESSAGES[randomIndex]}</div>
 </div>`;
 }
+
+
+
+// Пытался сделать автоматическую прокрутку
+
+/*const message = document.querySelectorAll(".message");
+const clientMessage = document.querySelectorAll(".message_client");
+
+
+function scrollingChat () {
+
+if (message && clientMessage) {
+   .scrollIntoView();
+}
+
+}*/
+
+
 
