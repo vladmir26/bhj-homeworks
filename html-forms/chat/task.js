@@ -13,6 +13,7 @@ function openingChat () {
 
 const input = document.querySelector(".chat-widget__input");
 const messageClient = document.querySelector(".chat-widget__messages");
+const messagesContainer = document.querySelector(".chat-widget__messages-container");
 
 
 input.addEventListener("keydown", sendingMessageUser);
@@ -37,7 +38,7 @@ function sendingMessageUser (event) {
         sendingMessageRobot();
 
         clearTimeout(timeoutId);
-        timeoutId;
+        timeoutId = setTimeout(sendingMessageRobot, 30000);
     }
 
 } 
@@ -49,23 +50,9 @@ function sendingMessageRobot () {
     <div class="message__time">${currentTime}</div>
     <div class="message__text">${ROBOT_MESSAGES[randomIndex]}</div>
 </div>`;
+   messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
-
-
-// Пытался сделать автоматическую прокрутку
-
-/*const message = document.querySelectorAll(".message");
-const clientMessage = document.querySelectorAll(".message_client");
-
-
-function scrollingChat () {
-
-if (message && clientMessage) {
-   .scrollIntoView();
-}
-
-}*/
 
 
 
