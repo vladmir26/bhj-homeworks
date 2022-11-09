@@ -67,18 +67,18 @@ class Autocomplete {
   }
 
   getMatches(text) {
+     let result = [];
      let options = Array.from(this.input.options);
-     let optionText = options.forEach((option) => {option.innerText.includes(text)});
-    
-    
-     
-       return [
-      {
-        text: '',
-        value: ''
+     options.forEach((option) => {
+      if (option.innerText.includes(text)) {
+        result.push({
+          text: option.innerText,
+          value: option.value
+        })
       }
-    ]};
-  }
-
+     });
+      return result
+  };
+}
 
 new Autocomplete( document.querySelector( '.autocomplete' ));
