@@ -14,7 +14,23 @@ function promptAppearance (event) {
     tooltip.classList.add('tooltip');
     tooltip.innerText = tooltipText;
 
+    const sizes = link.getBoundingClientRect();
+    tooltip.style.display = 'block';
+    tooltip.style.top = `${sizes.bottom}px`;
+
     link.after(tooltip);
 
+    const tooltipSizes = tooltip.getBoundingClientRect();
+    tooltip.style.left = sizes.left + (sizes.width /2) -(tooltipSizes.width /2) + 'px';
 
+    console.log(tooltip);
 }    
+
+document.addEventListener("scroll", () => {
+  const allTooltipSibling = Array.from(document.querySelectorAll(".tooltip"));
+
+  const sizesAllTooltip = allTooltipSibling.forEach((tooltip) => tooltip.previousSibling.getBoundingClientRect());
+   
+  sizesAllTooltip.style.top = `${sizes.bottom}px`;
+  sizesAllTooltip.style.left = sizes.left + (sizes.width /2) -(tooltipSizes.width /2) + 'px';
+});
