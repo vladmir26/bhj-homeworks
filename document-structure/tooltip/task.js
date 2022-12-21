@@ -22,14 +22,19 @@ function promptAppearance (event) {
 
     const tooltipSizes = tooltip.getBoundingClientRect();
     tooltip.style.left = sizes.left + (sizes.width /2) -(tooltipSizes.width /2) + 'px';
-}    
+}   
 
 document.addEventListener("scroll", () => {
   const allTooltipSibling = Array.from(document.querySelectorAll(".tooltip"));
 
-  const sizesAllTooltip = allTooltipSibling.forEach((element) => element.previosSibling.getBoundingClientRect());
-   
-  sizesAllTooltip.style.top = `${sizes.bottom}px`;
 
-  sizesAllTooltip.style.left = sizes.left + (sizes.width /2) -(tooltipSizes.width /2) + 'px';
-});
+  allTooltipSibling.forEach((element) => {
+  
+  let sizesAllTooltip = element.previousSibling.getBoundingClientRect();
+   
+  element.style.top = `${sizesAllTooltip.bottom}px`;
+
+  element.style.left = sizesAllTooltip.left + (sizesAllTooltip.width /2) - (sizesAllTooltip.width /2) + 'px';
+  })
+  }
+ )
