@@ -30,11 +30,11 @@ document.addEventListener("scroll", () => {
 
   allTooltipSibling.forEach((element) => {
   
-  let sizesAllTooltip = element.previousSibling.getBoundingClientRect();
+  let sizesLink = element.previousSibling.getBoundingClientRect();
    
-  element.style.top = `${sizesAllTooltip.bottom}px`;
+  element.style.top = `${sizesLink.bottom}px`;
 
-  element.style.left = sizesAllTooltip.left + (sizesAllTooltip.width /2) - (sizesAllTooltip.width /2) + 'px';
+  element.style.left = sizesLink.left + (sizesLink.width /2) - (element.width /2) + 'px';
   })
   }
  )
