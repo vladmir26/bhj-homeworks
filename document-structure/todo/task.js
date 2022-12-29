@@ -16,9 +16,6 @@ input.addEventListener("keydown", (event) => {
       <a href="#" class="task__remove">&times;</a>
       </div>`;
       input.value = '';
-
-      const taskRemove = document.querySelectorAll('.task__remove');
-
      }
    }
 })
@@ -35,7 +32,6 @@ tasksControl.addEventListener("submit", (event) => {
         </div>`;
         input.value = '';
   
-        const taskRemove = document.querySelectorAll('.task__remove');
       }
    }
 )
