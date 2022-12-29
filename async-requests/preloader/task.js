@@ -8,11 +8,13 @@ xhr.responseType = 'json';
 
 xhr.onload = () => {
     console.log(xhr.response);
+
+
+   for (let key in xhr.response.response.Valute) {
+    console.log(key);
+}
 }
 
-
 xhr.send();
-
-
 
 
