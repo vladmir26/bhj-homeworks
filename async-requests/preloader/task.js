@@ -7,14 +7,26 @@ xhr.open('GET', 'https://students.netoservices.ru/nestjs-backend/slow-get-course
 xhr.responseType = 'json';
 
 xhr.onload = () => {
-    console.log(xhr.response);
 
+    for (let key in xhr.response.response.Valute) {
+        const loader = document.querySelector('.loader');
 
-   for (let key in xhr.response.response.Valute) {
-    console.log(key);
-}
+        items.innerHTML += `<div class="item">
+        <div class="item__code">
+        ${xhr.response.response.Valute[key].CharCode}
+        </div>
+        <div class="item__value">
+        ${xhr.response.response.Valute[key].Value} 
+        </div>
+        <div class="item__currency">
+        руб.
+        </div>
+        </div>`;
+
+        loader.classList.remove('loader_active');
+
+    }
 }
 
 xhr.send();
-
 
