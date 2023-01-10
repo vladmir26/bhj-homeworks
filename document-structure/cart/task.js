@@ -51,16 +51,38 @@ productAdd.forEach((element) => {
     
     const cartProducts = document.querySelector('.cart__products');
     
+    const addedProducts = Array.from(cartProducts.querySelectorAll('.cart__product'));
+
+    if(addedProducts) {
+      const addedProduct =  addedProducts.includes(id);
+
+      if(addedProduct) {
+        amountTextContent + 1;
+      } else {
+        if(element.id) {
+          amountTextContent + 1;
+         } else {
+        cartProducts.innerHTML += `<div class="cart__product" data-id="${id}">
+        <img class="cart__product-image" src="${src}">
+        <div class="cart__product-count">${amountTextContent}</div>
+        </div>`;
+         }
+      }
+
+    }
+    
+    
+    
+    if(element.id) {
+      amountTextContent + 1;
+     } else {
     cartProducts.innerHTML += `<div class="cart__product" data-id="${id}">
     <img class="cart__product-image" src="${src}">
     <div class="cart__product-count">${amountTextContent}</div>
     </div>`;
+    }
 
-    cartProducts.forEach((element) => {
-      if(element.id) {
-        element.amountTextContent = Number(amountTextContent) + 1;
-      }
-    })
-  })
-});
-
+   
+  }) 
+}); 
+  
