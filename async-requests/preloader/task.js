@@ -22,10 +22,9 @@ xhr.onload = () => {
         руб.
         </div>
         </div>`;
-
-        loader.classList.remove('loader_active');
-
     }
+
+    loader.classList.remove('loader_active');
 }
 
 xhr.send();
