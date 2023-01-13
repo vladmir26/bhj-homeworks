@@ -47,42 +47,32 @@ productAdd.forEach((element) => {
     const img = product.querySelector('img');
     const src = img.src;
     const amount = product.querySelector('.product__quantity-value');
-    const amountTextContent = amount.textContent;
+    const amountTextContent = +amount.textContent;
     
     const cartProducts = document.querySelector('.cart__products');
     
     const addedProducts = Array.from(cartProducts.querySelectorAll('.cart__product'));
 
-    if(addedProducts) {
-      const addedProduct =  addedProducts.includes(id);
+    if(addedProducts.length > 0) {
+      const addedProduct =  addedProducts.filter((elem) => elem.dataset.id === id);
 
-      if(addedProduct) {
-        amountTextContent + 1;
+      if(addedProduct[0]) {
+        const amountInBasket = addedProduct[0].querySelector('.cart__product-count');
+        amountInBasket.textContent = +amountInBasket.textContent + amountTextContent;
       } else {
-        if(element.id) {
-          amountTextContent + 1;
-         } else {
         cartProducts.innerHTML += `<div class="cart__product" data-id="${id}">
         <img class="cart__product-image" src="${src}">
         <div class="cart__product-count">${amountTextContent}</div>
         </div>`;
-         }
       }
-
+    } else {
+        cartProducts.innerHTML += `<div class="cart__product" data-id="${id}">
+        <img class="cart__product-image" src="${src}">
+        <div class="cart__product-count">${amountTextContent}</div>
+        </div>`;
+      }
     }
-    
-    
-    
-    if(element.id) {
-      amountTextContent + 1;
-     } else {
-    cartProducts.innerHTML += `<div class="cart__product" data-id="${id}">
-    <img class="cart__product-image" src="${src}">
-    <div class="cart__product-count">${amountTextContent}</div>
-    </div>`;
-    }
-
    
-  }) 
+) 
 }); 
   
