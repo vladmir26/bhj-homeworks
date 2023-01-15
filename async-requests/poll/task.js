@@ -40,3 +40,12 @@ xhr.onload = () => {
 }
 
 xhr.send();
+
+const xhrPost = new XMLHttpRequest;
+xhrPost.open( 'POST', 'https://students.netoservices.ru/nestjs-backend/poll' );
+xhrPost.setRequestHeader( 'Content-type', 'application/x-www-form-urlencoded' );
+
+xhrPost.onload = () => {
+    console.log(xhrPost.response);
+}
+xhrPost.send('vote=1&answer=2');
