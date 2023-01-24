@@ -10,7 +10,6 @@ xhr.responseType = 'json';
 
 xhr.onload = () => {
 
-    console.log(xhr.response);
 
     for(let key in xhr.response.data.title) {
 
@@ -21,8 +20,6 @@ xhr.onload = () => {
 
     for(let key in xhr.response.data.answers) {
 
-        console.log(xhr.response.data.answers[key])
-
         pollAnswers.innerHTML += `
         <button class="poll__answer">
         ${xhr.response.data.answers[key]}
@@ -31,21 +28,36 @@ xhr.onload = () => {
         const pollAnawer = Array.from(document.querySelectorAll('.poll__answer'));
 
         pollAnawer.forEach((answer) => {
-            answer.addEventListener("click", () => {
-                 alert("Спасибо, ваш голос засчитан!");
-            })
-        });
+                 answer.addEventListener("click", (event) => sendPost(event, xhr.response.data))
+            });
     }
     
 }
 
 xhr.send();
+ 
+function sendPost(event, data) {
+
+const btnText = event.target.textContent;
+const answerIndex = data.data.answers.indexof(btnText.trim());
+
 
 const xhrPost = new XMLHttpRequest;
 xhrPost.open( 'POST', 'https://students.netoservices.ru/nestjs-backend/poll' );
 xhrPost.setRequestHeader( 'Content-type', 'application/x-www-form-urlencoded' );
 
 xhrPost.onload = () => {
-    console.log(xhrPost.response);
+
+
+pollAnswers.innerHTML += `
+<ul>
+<li>${answerIndex}:${data.id}</li>
+</ul>
+`
 }
-xhrPost.send('vote=1&answer=2');
+
+
+xhrPost.send(`vote=${data.id}&answer=${answerIndex}`);
+
+}
+
