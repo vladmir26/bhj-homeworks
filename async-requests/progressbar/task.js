@@ -8,5 +8,9 @@ form.addEventListener('submit', (event) => {
     xhr.onload = () => {
         console.log(xhr.response);
     }
+
+    xhr.upload.addEventListener('progress', (event) => {
+        console.log(event);
+    })
     xhr.send(formData);
 })
