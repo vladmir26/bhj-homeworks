@@ -28,7 +28,7 @@ xhr.onload = () => {
         const pollAnawer = Array.from(document.querySelectorAll('.poll__answer'));
 
         pollAnawer.forEach((answer) => {
-                 answer.addEventListener("click", (event) => sendPost(event, xhr.response.data))
+                 answer.addEventListener("click", (event) => sendPost(event, xhr.response))
             });
     }
     
@@ -60,4 +60,5 @@ pollAnswers.innerHTML += `
 xhrPost.send(`vote=${data.id}&answer=${answerIndex}`);
 
 }
+
 
