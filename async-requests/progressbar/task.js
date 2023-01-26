@@ -13,7 +13,7 @@ form.addEventListener('submit', (event) => {
 
     xhr.upload.addEventListener('progress', (event) => {
         console.log(event);
-        progress.value = "1";
+        progress.value = event.loaded / event.total;
     })
     xhr.send(formData);
 })
