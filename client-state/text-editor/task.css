@@ -8,3 +8,13 @@ textarea {
   border: 1px solid #e2e2e2;
   box-sizing: border-box;
 }
+
+.btn {
+  width: 170px;
+  height: 70px;
+  border-radius: 10px;
+  font-family: Golos, Arial, sans-serif;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
