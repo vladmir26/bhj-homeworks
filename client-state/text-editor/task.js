@@ -2,20 +2,20 @@ const editor = document.getElementById('editor');
 const btn = document.querySelector('.btn');
 
 editor.addEventListener("keyup", () => {
-
  localStorage.setItem("storage",editor.value);
- localStorage.getItem("storage");
-
 })
 
+let storage = localStorage.getItem("storage");
+
 window.addEventListener("load", () => {
-   if(localStorage.getItem("storage")) {
-      editor.value = localStorage.getItem("storage");
+   if(storage) {
+      editor.value = storage;
    }
 })
 
 btn.addEventListener("click", () => {
    editor.value = '';
+   localStorage.removeItem("storage");
 })
 
 
