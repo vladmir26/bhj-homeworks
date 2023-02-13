@@ -45,3 +45,24 @@
   display: block;
   text-align: center;
 }
+
+.error {
+  display: none;
+}
+
+.error_active {
+  display: block;
+  text-align: center;
+}
+
+.signout-btn {
+  display: none;
+}
+
+.signout-btn_active {
+  display: block;
+  text-align: center;
+  margin-left: auto; 
+  margin-right: auto;
+  margin-top: 20px;
+}
